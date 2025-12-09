@@ -1,0 +1,1182 @@
+/* =========== Google Fonts ============ */
+
+@import url("https://fonts.googleapis.com/css2?family=Ubuntu:wght@300;400;500;700&display=swap");
+* {
+    font-family: "Ubuntu", sans-serif;
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+:root {
+    --green: #03401d;
+    --white: #fff;
+    --gray: #f5f5f5;
+    --black1: #222;
+    --black2: #999;
+    --yellow: #ffc107;
+    --white2: #f2f3f4;
+}
+
+body {
+    min-height: 100vh;
+    overflow-x: hidden;
+}
+
+
+/*  */
+
+.container {
+    position: relative;
+    width: 100%;
+}
+
+
+/* =============== Navigation ================ */
+
+.navigation {
+    position: fixed;
+    width: 300px;
+    height: 100%;
+    background: var(--green);
+    border-left: 10px solid var(--green);
+    transition: 0.5s;
+    overflow: hidden;
+}
+
+y6 .navigation.active {
+    width: 80px;
+}
+
+.navigation ul {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+}
+
+.navigation ul li {
+    position: relative;
+    width: 100%;
+    list-style: none;
+    border-top-left-radius: 30px;
+    border-bottom-left-radius: 30px;
+}
+
+.navigation ul li:hover,
+.navigation ul li.hovered {
+    background-color: var(--white);
+}
+
+.navigation ul li:nth-child(1) {
+    margin-bottom: 40px;
+    pointer-events: none;
+}
+
+.navigation ul li a {
+    position: relative;
+    display: block;
+    width: 100%;
+    display: flex;
+    text-decoration: none;
+    color: var(--white);
+}
+
+.navigation ul li:hover a,
+.navigation ul li.hovered a {
+    color: var(--green);
+}
+
+.navigation ul li a .icon {
+    position: relative;
+    display: block;
+    min-width: 60px;
+    height: 60px;
+    line-height: 75px;
+    text-align: center;
+}
+
+.navigation ul li a .icon ion-icon {
+    font-size: 1.75rem;
+}
+
+.navigation ul li a .title {
+    position: relative;
+    display: block;
+    padding: 0 10px;
+    height: 60px;
+    line-height: 60px;
+    text-align: start;
+    white-space: nowrap;
+}
+
+
+/* --------- curve outside/samping navbar jika di klik akan melengkung ---------- */
+
+.navigation ul li:hover a::before,
+.navigation ul li.hovered a::before {
+    content: "";
+    position: absolute;
+    right: 0;
+    top: -50px;
+    width: 50px;
+    height: 50px;
+    background-color: transparent;
+    border-radius: 50%;
+    box-shadow: 35px 35px 0 10px var(--white);
+    pointer-events: none;
+}
+
+.navigation ul li:hover a::after,
+.navigation ul li.hovered a::after {
+    content: "";
+    position: absolute;
+    right: 0;
+    bottom: -50px;
+    width: 50px;
+    height: 50px;
+    background-color: transparent;
+    border-radius: 50%;
+    box-shadow: 35px -35px 0 10px var(--white);
+    pointer-events: none;
+}
+
+
+/* ===================== Main ===================== */
+
+.main {
+    position: absolute;
+    width: calc(100% - 300px);
+    left: 300px;
+    min-height: 100vh;
+    background: var(--white);
+    transition: 0.5s;
+}
+
+.main.active {
+    width: calc(100% - 80px);
+    left: 80px;
+}
+
+.topbar {
+    width: 100%;
+    height: 60px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 0 10px;
+    background: var(--yellow);
+}
+
+.toggle {
+    position: relative;
+    width: 60px;
+    height: 60px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-size: 2.5rem;
+    cursor: pointer;
+}
+
+
+/* ============================ search ============================= */
+
+.search {
+    position: relative;
+    width: 450px;
+    margin: 0 10px;
+}
+
+.search label {
+    position: relative;
+    width: auto;
+}
+
+.search label input {
+    width: 100%;
+    height: 40px;
+    border-radius: 40px;
+    padding: 5px 20px;
+    padding-left: 35px;
+    font-size: 18px;
+    outline: none;
+    border: 1px solid var(--black2);
+}
+
+.search label ion-icon {
+    position: absolute;
+    top: 0;
+    left: 10px;
+    font-size: 1.2rem;
+}
+
+
+/* ==================================== Tambahkan media query untuk layar kecil ==================================== */
+
+@media screen and (max-width: 800px) {
+    .main {
+        width: 100%;
+        left: 0;
+    }
+    .main.active {
+        width: 100%;
+        left: 0;
+    }
+    .search {
+        width: auto;
+    }
+    .topbar {
+        flex-direction: column;
+        align-items: flex-start;
+    }
+    .toggle {
+        position: relative;
+        width: 60px;
+        height: 60px;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        font-size: 2.5rem;
+        cursor: pointer;
+    }
+    .search {
+        width: auto;
+        margin: 10px 0;
+    }
+    /* 
+  .table{
+    margin-top: 2020px;
+  }
+
+  .content-table {
+    margin-top: 200px;
+  } */
+}
+
+
+/* ======================= Cards ====================== */
+
+.cardBox {
+    position: relative;
+    /* munculkan di layer depan */
+    width: 100%;
+    padding: 10px;
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    grid-gap: 30px;
+}
+
+.cardBox .card {
+    position: relative;
+    background: var(--white);
+    padding: 25px;
+    border-radius: 20px;
+    display: flex;
+    justify-content: space-between;
+    cursor: pointer;
+    box-shadow: 0 7px 25px rgba(0, 0, 0, 0.08);
+}
+
+.cardBox .card .numbers {
+    position: relative;
+    font-weight: 500;
+    font-size: 2.5rem;
+    color: var(--green);
+}
+
+.cardBox .card .cardName {
+    color: var(--black2);
+    font-size: 1.1rem;
+    margin-top: 5px;
+}
+
+.cardBox .card .iconBx {
+    font-size: 3.5rem;
+    color: var(--black2);
+}
+
+.cardBox .card:hover {
+    background: var(--green);
+}
+
+.cardBox .card:hover .numbers,
+.cardBox .card:hover .cardName,
+.cardBox .card:hover .iconBx {
+    color: var(--white);
+}
+
+
+/* ======================= Tabel ====================== */
+
+.table {
+    margin: 20px;
+}
+
+.content-table {
+    border-collapse: collapse;
+    margin: 20px 0;
+    font-size: 0.9em;
+    min-width: 400px;
+    border-radius: 5px 5px 0 0;
+    overflow: hidden;
+    box-shadow: 0 0 20px rgba(0, 0, 0, 0.15);
+    width: 100%;
+}
+
+.content-table thead tr {
+    background-color: var(--yellow);
+    color: var(--white);
+    text-align: left;
+    font-weight: bold;
+    text-align: center;
+}
+
+.content-table th,
+.content-table td {
+    padding: 12px 15px;
+}
+
+.content-table tbody tr {
+    border-bottom: 1px solidvar(--green);
+}
+
+.content-table tbody tr:nth-of-type(even) {
+    background-color: var(--green);
+    color: var(--white);
+}
+
+.content-table tbody tr:last-of-type {
+    border-bottom: 2px solid var(--green);
+}
+
+.content-table tbody tr:hover {
+    background: var(--green);
+    color: var(--white);
+}
+
+
+/* .content-table tbody tr td:last-child {
+  text-align: end;
+} */
+
+
+/* ====================== Responsive Design ========================== */
+
+@media (max-width: 768px) {
+    .details {
+        grid-template-columns: 1fr;
+    }
+    .table {
+        overflow-x: auto;
+    }
+    .status.inProgress {
+        white-space: nowrap;
+    }
+}
+
+@media (max-width: 480px) {
+    .cardBox {
+        grid-template-columns: repeat(1, 1fr);
+    }
+    .cardHeader h2 {
+        font-size: 20px;
+    }
+    .navigation {
+        width: 100%;
+        left: -100%;
+        z-index: 1000;
+    }
+    .navigation.active {
+        width: 100%;
+        left: 0;
+    }
+    .toggle {
+        z-index: 10001;
+    }
+    .main.active .toggle {
+        color: var(--white);
+        position: fixed;
+        right: 0;
+        left: initial;
+    }
+}
+
+
+/* ========================= hasil survei bidang ==============================  */
+
+
+/* ======================= jenis survei ==============================  */
+
+.dropdown-content {
+    display: none;
+    position: absolute;
+    background-color: #f9f9f9;
+    min-width: 160px;
+    box-shadow: 0px 8px 16px 0px rgba(0, 0, 0, 0.2);
+    z-index: 1;
+}
+
+.dropdown-content a {
+    float: none;
+    color: black;
+    padding: 12px 16px;
+    text-decoration: none;
+    display: block;
+    text-align: left;
+}
+
+.dropdown-content a:hover {
+    background-color: #ddd;
+}
+
+.dropdown:hover .dropdown-content {
+    display: block;
+}
+
+
+/* ======================= filter ===========================  */
+
+.filter {
+    font-size: 18px;
+}
+
+select {
+    padding: 10px 20px;
+    background-color: var(--green);
+    border: 0px solid var(--green);
+    margin-right: 30px;
+    border-radius: 40px;
+    color: var(--white);
+    width: auto;
+}
+
+select:hover {
+    background-color: var(--white);
+    color: var(--green);
+    border: 2px solid var(--green);
+}
+
+button {
+    position: relative;
+    padding: 6px 30px;
+    left: -8px;
+    border: 2px solid var(--green);
+    background-color: var(--green);
+    color: var(--white);
+    border-radius: 40px;
+}
+
+button:hover {
+    background-color: var(--white);
+    color: var(--green);
+}
+
+
+/* ======================= Tabel Survei_Users ====================== */
+
+.tableUsers {
+    margin: 20px;
+}
+
+.tableUsers caption {
+    margin: 20px;
+    color: var(--green);
+    font-weight: bold;
+    font-size: 30px;
+}
+
+.content-tableUsers {
+    border-collapse: collapse;
+    margin: 20px 0;
+    font-size: 0.9em;
+    min-width: 400px;
+    border-radius: 5px 5px 0 0;
+    overflow: hidden;
+    box-shadow: 0 0 20px rgba(0, 0, 0, 0.15);
+    width: 100%;
+}
+
+.content-tableUsers thead tr {
+    background-color: var(--green);
+    color: var(--white);
+    text-align: left;
+    font-weight: bold;
+    text-align: center;
+}
+
+.content-tableUsers th,
+.content-tableUsers td {
+    padding: 12px 15px;
+}
+
+.content-tableUserstbody tr {
+    border-bottom: 1px solid var(--green);
+}
+
+.content-tableUsers tbody tr:nth-child(odd) {
+    background-color: var(--yellow);
+    /* Warna latar belakang untuk baris ganjil */
+    color: var(--green);
+}
+
+.content-tableUsers tbody tr:hover {
+    background: var(--green);
+    color: var(--white);
+}
+
+.content-tableUsers tfoot {
+    text-align: center;
+}
+
+.content-tableUsers tfoot tr td:last-child {
+    text-align: end;
+}
+
+.content-tableUsers tfoot tr td:first-child {
+    text-align: left;
+}
+
+
+/* ================================ ADMIN ============================ */
+
+button {
+    position: relative;
+    padding: 6px 30px;
+    left: -8px;
+    border: 2px solid var(--green);
+    background-color: var(--green);
+    color: var(--white);
+    border-radius: 40px;
+}
+
+button:hover {
+    background-color: var(--white);
+    color: var(--green);
+}
+
+
+/* ============================= display user ============================== */
+
+.topbarDisplay {
+    width: 100%;
+    height: 100px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 0 10px;
+    background-color: var(--green);
+}
+
+.tableUsers caption {
+    margin: 20px;
+    color: var(--green);
+    font-weight: bold;
+    font-size: 30px;
+}
+
+
+/*===================================== FORM =================================== */
+
+.card-body {
+    border: black solid 1px;
+    padding: 20px;
+    width: 700px;
+    border-radius: 4px;
+    margin: auto;
+    margin-top: 50px;
+}
+
+.form-group {
+    margin: 10px 0;
+    margin-bottom: 15px;
+}
+
+.form-group input {
+    width: 640px;
+    height: 37px;
+    border-radius: 5px;
+    font-size: 16px;
+    margin-top: 6px;
+    padding-left: 10px;
+}
+
+.form-group input:focus {
+    border: 2px solid var(--green);
+    outline: none;
+    box-shadow: 0 0 7px rgba(9, 95, 9, 0.8);
+}
+
+.form-control-label {
+    font-size: 18px;
+    margin-bottom: 10px;
+    font-weight: bolder;
+    font-family: "Ubuntu", sans-serif;
+}
+
+.submit {
+    width: 640px;
+    height: 40px;
+    background-color: var(--green);
+    color: white;
+    border-radius: 5px;
+    border: 1px solid var(--green);
+    outline: none;
+    margin-left: 8px;
+    margin-right: -30px;
+}
+
+.submit:hover {
+    border: 2px solid var(--green);
+    box-shadow: 0 0 7px rgba(0, 128, 0, 0.8);
+    color: black;
+    background-color: white;
+}
+
+.select_survei {
+    width: 640px;
+    height: 40px;
+    border-radius: 5px;
+}
+
+.input_file {
+    outline: none;
+}
+
+.input_file:hover {
+    outline: none;
+    border: none;
+    box-shadow: none;
+}
+
+
+/* ============== FORM USER ====================== */
+
+.card-body-user {
+    border: black solid 1px;
+    padding: 20px;
+    width: 700px;
+    border-radius: 3px;
+    margin: auto;
+    margin-top: 35px;
+    background-color: var(--white);
+}
+
+.card-body-user h1 {
+    /* background-color: var(--black1); */
+    color: var(--black1);
+    text-align: center;
+    margin-top: 10px;
+    margin-bottom: 30px;
+    text-decoration: underline;
+}
+
+.form-group-user {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-between;
+    margin-left: 10px;
+    /* margin-bottom: 15px; */
+}
+
+.form-group-user input {
+    width: 295px;
+    height: 37px;
+    border-radius: 5px;
+    font-size: 16px;
+    margin-top: 6px;
+    padding: 0 10px;
+    box-sizing: border-box;
+    margin-bottom: 15px;
+}
+
+.form-group-user input:focus {
+    border: 2px solid var(--green);
+    outline: none;
+    box-shadow: 0 0 7px rgba(9, 95, 9, 0.8);
+}
+
+.form-label-user {
+    font-size: 18px;
+    margin-bottom: 10px;
+    font-weight: bolder;
+}
+
+.select_keperluan {
+    background-color: var(--white);
+    border: 2px solid var(--green);
+    width: 640px;
+    height: 40px;
+    border-radius: 5px;
+    color: var(--black1);
+    padding-right: 10px;
+    margin: 10px 0px;
+}
+
+.select_jenis_kelamin {
+    background-color: var(--white);
+    border: 2px solid var(--green);
+    width: 295px;
+    height: 40px;
+    border-radius: 5px;
+    color: var(--black1);
+    padding-right: 10px;
+}
+
+
+/* ================= BODY USER =================== */
+
+.body-user {
+    background-color: var(--green);
+}
+
+
+/* =========== HEADER USER ============ */
+
+header {
+    background-color: var(--yellow);
+    padding: 10px;
+    color: var(--green);
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+#logo-container {
+    display: flex;
+    align-items: center;
+}
+
+#logo {
+    width: 100px;
+    height: 100px;
+    margin-right: 10px;
+}
+
+#instansi {
+    font-size: 25px;
+    margin-right: 10px;
+}
+
+#alamat {
+    font-size: 14px;
+}
+
+#jam {
+    font-size: 30px;
+    margin-right: 15px;
+}
+
+
+/* ============= CONTENT DISPLAY USER =========== */
+
+.button-container1 {
+    margin-bottom: 250px;
+    position: absolute;
+    bottom: 20px;
+    left: 50%;
+    transform: translateX(-50%);
+}
+
+.button-container1 button {
+    font-size: 25px;
+    font-weight: 500;
+    color: var(--black1);
+}
+
+.button-container2 {
+    margin-bottom: 100px;
+    margin-top: 500PX;
+    position: absolute;
+    bottom: 20px;
+    left: 50%;
+    transform: translateX(-50%);
+}
+
+.button-container2 button {
+    font-size: 25px;
+    font-weight: 500;
+    color: var(--black1);
+}
+
+
+.button-form {
+    border: none;
+    width: 700px;
+    height: 120px;
+    border-radius: 5px;
+    background-color: var(--white);
+    box-shadow: 0 0 7px rgba(0, 128, 0, 0.8);
+}
+
+.button-form:hover {
+    /* border: 1px solid black; */
+    box-shadow: 0 0 7px rgba(0, 128, 96, 0.8);
+    color: var(--white);
+    background-color: var(--green);
+}
+
+
+/* ================= ANTRIAN ============= */
+
+.struk {
+    border: black solid 1px;
+    padding: 15px;
+    width: 350px;
+    height: 400px;
+    margin: auto;
+    margin-top: 5px;
+    background-color: var(--white);
+    text-align: center;
+}
+
+.struk-content {
+    overflow: hidden;
+}
+
+.gbr-logo {
+    float: left;
+    width: 18%;
+    height: 80px;
+}
+
+.gbr-logo img {
+    width: 100%;
+}
+
+.text-content {
+    float: left;
+    width: 82%;
+}
+
+.struk h3 {
+    font-weight: 900;
+}
+
+.p-nama-bidang,
+.p-nama-pelayanan {
+    font-size: 14px;
+}
+
+.p-nama-bidang {
+    font-weight: 500;
+}
+
+.p-nomor-antrian {
+    font-weight: 700;
+    font-size: 16px;
+}
+
+#p-antrian {
+    margin-top: 50px;
+    margin-bottom: 75px;
+    font-size: 85px;
+}
+
+#tanggal-jam-cetak {
+    margin-top: 20px;
+}
+
+.cetak {
+    padding: 10px 20px;
+    font-size: 18px;
+    background-color: var(--yellow);
+    color: var(--white);
+    font-weight: 500;
+    border: none;
+    cursor: pointer;
+    width: 350px;
+    height: 59px;
+    margin-left: -12px;
+    border-radius: 0;
+    display: block;
+    margin-top: 30px;
+    margin-left: -9px;
+}
+
+.tombol-cetak {
+    text-decoration: none;
+}
+
+.cetak:hover {
+    border: 1px solid black;
+    box-shadow: 0 0 7px rgba(0, 128, 0, 0.8);
+    color: black;
+    background-color: white;
+}
+
+.content h1 {
+    color: var(--white);
+}
+
+
+/* ================== PANGGIL ANTRIAN - BIDANG ======================= */
+
+.container-wrapper {
+    display: flex;
+    margin-top: 20px;
+}
+
+.container-tabel {
+    border: 0.5px solid black;
+    margin-right: 20px;
+    padding: 10px;
+    border-radius: 3px;
+    background-color: var(--white2);
+}
+
+.container-tabel:first-child {
+    flex-grow: 7;
+    /* 70% */
+}
+
+.container-tabel:last-child {
+    flex-grow: 3;
+    /* 30% */
+}
+
+.tabel-1,
+.tabel-2 {
+    width: 100%;
+    border-collapse: collapse;
+}
+
+.container-tabel h2 {
+    text-align: center;
+    margin-bottom: 10px;
+    text-decoration: underline;
+}
+
+.btn-circle {
+    border-radius: 50%;
+    width: 50px;
+    height: 50px;
+    padding: 0;
+    cursor: pointer;
+    overflow: hidden;
+}
+
+.btn-circle img {
+    width: 50px;
+    height: 50px;
+}
+
+.antrian-container {
+    width: 300px;
+    margin: 0 auto;
+    text-align: center;
+}
+
+#antrian {
+    font-size: 24px;
+    margin-bottom: 20px;
+}
+
+.tamp-no-antrian {
+    text-align: center;
+    margin-left: -20px;
+    font-size: 30px;
+    margin-top: 5px;
+    margin-bottom: -15px;
+}
+
+.buttonNextBack {
+    text-align: center;
+    display: flex;
+    justify-content: space-between;
+    margin-top: 20px;
+    border-radius: 0;
+}
+
+.buttonNextBack button {
+    background-color: var(--yellow);
+    border: 1px solid var(--black1);
+    color: var(--black1);
+    border-radius: 4px;
+}
+
+.back {
+    margin-right: -40px;
+    margin-left: 15px;
+}
+
+.next {
+    margin-left: -40px;
+}
+
+.selesai {
+    background-color: var(--yellow);
+    color: var(--black1);
+    border: 1px solid var(--black1);
+}
+
+.modif-tabel {
+    text-align: center;
+}
+
+#id_loket {
+    width: 300px;
+    height: 40px;
+    border-radius: 5px;
+    margin-right: -120px;
+    margin-left: 20px;
+    margin-top: 15px;
+}
+
+#bt-panggil {
+    margin-left: 37px;
+    margin-right: -40px;
+    margin-top: 15px;
+}
+
+#ulang_id_antrian {
+    width: 250px;
+    height: 40px;
+    border-radius: 5px;
+    margin-top: 15px;
+}
+
+#bt-panggil-ulang {
+    margin-left: 15px;
+    margin-top: 15px;
+    /* margin-right: -40px; */
+}
+
+
+/* =============== DISPLAY BIDANG ================ */
+
+.display-kotak-antrian {
+    width: 45%;
+    height: 500px;
+    /* background-color: red; */
+    flex: 1;
+    display: flex;
+    flex-wrap: wrap;
+    margin-left: 15px;
+    padding-left: 10px;
+}
+
+.dis-antrian-loket {
+    display: flex;
+    flex-wrap: wrap;
+}
+
+.kotakKecil {
+    width: 300px;
+    height: 160px;
+    flex-direction: column;
+    background-color: var(--white2);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-size: 24px;
+    box-sizing: border-box;
+    border: 1px solid var(--black1);
+    margin: 5px;
+    text-align: center;
+    border-radius: 3px;
+}
+
+.display-kotak-video {
+    width: 55%;
+    height: 500px;
+    display: flex;
+    justify-content: flex-end;
+    padding-right: 20px;
+}
+
+.kotakBesarVideo {
+    width: 800px;
+    height: 500px;
+    /* background-color: #8e1a6f; */
+    /* border: 1px solid var(--black1); */
+    margin: 5px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-size: 24px;
+    border-radius: 3px;
+}
+
+.judul-display {
+    background-color: #1B3921;
+}
+
+.judul-display h1 {
+    text-align: center;
+    margin: 20px 0px;
+    color: var(--white);
+    text-shadow: 4px 4px 4px rgba(0, 0, 0, 0.5);
+}
+
+.dis-nama-loket,
+.dis-no-antrian {
+    font-weight: 500;
+}
+
+.dis-no-loket,
+.dis-nama-antrian {
+    font-weight: 900;
+}
+
+
+/* ======================== ADMIN - DATA USER ================ */
+
+.adm-grid-container {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+    gap: 20px;
+    padding: 20px;
+    justify-content: center;
+}
+
+.adm-grid-item {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    background: #ffc107;
+    /* background: linear-gradient(to right, #ff7e5f, #feb47b); */
+    border: 1px solid var(--black1);
+    padding: 20px;
+    text-align: center;
+    text-decoration: none;
+    width: 100%;
+    max-width: 380px;
+    height: 150px;
+    color: var(--white);
+    border-radius: 3px;
+    margin-bottom: 5px;
+}
+
+.adm-grid-item:hover {
+    background-color: var(--white);
+    color: var(--green);
+    border-radius: 10px;
+}
+
+.adm-grid-container a {
+    text-align: left;
+    font-size: 16px;
+    font-weight: 500;
+    color: var(--black1);
+}
+
+.adm-grid-item h1 {
+    text-align: right;
+    margin: 0;
+    padding: 0;
+    color: var(--green);
+    font-size: 50px;
+}
+
+
+/* ============= ADMIN - SURVEI PER BIDANG ========= */
+
+.btn-grafik a {
+    text-decoration: none;
+    color: var(--white);
+}
+
+.btn-grafik a:hover {
+    color: var(--black1);
+}
