@@ -103,40 +103,40 @@ Masing-masing indikator memiliki rating:
 
 ## Tampilan Superadmin
 
-### Halaman Login Superadmin
-![Login Superadmin](assets/img/screenshot/login_superadmin.png)
+### Halaman Login 
+![Login Superadmin](pic/superadmin-l.png)
 
 ### Dashboard Superadmin
-![Dashboard Superadmin](assets/img/screenshot/dashboard_superadmin.png)
+![Dashboard Superadmin](pic/superadmin-d.png)
 
 ---
 
 ## Tampilan Admin
 
 ### Dashboard Admin
-![Dashboard Admin](assets/img/screenshot/dashboard_admin.png)
+![Dashboard Admin](pic/admin-d.png)
 
 ### Halaman Panggil Antrian
-![Panggil Antrian](assets/img/screenshot/panggil_antrian.png)
+![Panggil Antrian](pic/admin-panggil.png)
 
 ---
 
 ## Tampilan Display Antrian
-![Display Antrian](assets/img/screenshot/display_antrian.png)
+![Display Antrian](pic/admin-a.png)
 
 ---
 
 ## Tampilan Pengunjung
 
 ### Halaman Mengambil Antrian & Survei
-![Menu Pengunjung](assets/img/screenshot/menu_pengunjung.png)
+![Menu Pengunjung](pic/user-1.png)
 
 ### Halaman Form Data Diri
-![Form Data Diri](assets/img/screenshot/form_data_diri.png)
+![Form Data Diri](pic/user-2.png)
 
 ### Halaman Cetak Antrian
-![Cetak Antrian](assets/img/screenshot/cetak_antrian.png)
+![Cetak Antrian](pic/user-3.png)
 
 ### Halaman Beri Rating
-![Beri Rating](assets/img/screenshot/beri_rating.png)
+![Beri Rating](pic/user-4.png)
 
